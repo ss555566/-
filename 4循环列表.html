@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环列表</title>
+</head>
+<body>
+    <script>
+            class Queue {
+
+                constructor(items) {
+                    this.items = items || []
+                }
+                // 入队列
+                enqueue(element) {
+                    this.items.push(element)
+                }
+                // 出队列
+                dequeue() {
+                    return this.items.shift()
+                }
+                // 首位
+                front() {
+                    return this.items[0]
+                }
+                // 是否为空队列
+                get isEmpty() {
+                    return !this.items.length
+                }
+                // 尺寸
+                get size() {
+                    return this.items.length
+                }
+                // 清空
+                clear() {
+                    this.items = []
+                }
+                // 打印栈数据
+                print() {
+                    console.log(this.items.toString())
+                }
+            }
+        class LoopQueue extends Queue {
+            constructor(items) {
+                super(items)
+            }
+
+            getIndex(index) {
+                const length = this.items.length
+                return index > length ? (index % length) : index
+            }
+
+            find(index) {
+                return !this.isEmpty ? this.items[this.getIndex(index)] : null
+            }
+
+        }
+
+        const loopQueue = new LoopQueue(['DDD'])
+        loopQueue.enqueue('AAA')
+        loopQueue.enqueue('BBB')
+        loopQueue.enqueue('CCC')
+        console.log(loopQueue.size, loopQueue.isEmpty) // 4 false
+
+        console.log(loopQueue.find(26)) // 'Evan'
+        console.log(loopQueue.find(87651)) // 'Alice'
+
+    </script>
+</body>
+</html>

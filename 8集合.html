@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>集合</title>
+</head>
+<body>
+	<script>
+		class Set {
+			constructor() {
+				this.items = {}
+			}
+
+			has(value) {
+				return this.items.hasOwnProperty(value)
+			}
+
+			add(value) {
+				if (!this.has(value)) {
+					this.items[value] = value
+					return true
+				}
+				return false
+			}
+
+			remove(value) {
+				if (this.has(value)) {
+					delete this.items[value]
+					return true
+				}
+				return false
+			}
+
+			get size() {
+				return Object.keys(this.items).length
+			}
+
+			get values() {
+				return Object.keys(this.items)
+			}
+		}
+
+		// 使用集合类
+		const set = new Set()
+		set.add(1)
+		console.log(set)
+		console.log(set.values)
+		console.log(set.has(1))
+		console.log(set.size)
+		
+		set.add(2)
+		console.log(set)
+		console.log(set.values)
+		console.log(set.has(2))
+		console.log(set.size)
+
+		set.remove(1)
+		console.log(set.values)
+
+		set.remove(2)
+		console.log(set.values)
+	</script>
+</body>
+</html>

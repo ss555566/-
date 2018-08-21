@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AMD规范</title>
+</head>
+<body>
+	<script>
+		// require([module], callback);
+		require(['math'], function (math) {
+			math.add(2, 3);
+		})
+	</script>
+</body>
+</html>

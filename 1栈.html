@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>栈</title>
+</head>
+<body>
+	<p>栈是一种遵从先进后出 (LIFO) 原则的有序集合；新添加的或待删除的元素都保存在栈的末尾，称作栈顶，另一端为栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。通俗来讲，一摞叠起来的书或盘子都可以看做一个栈，我们想要拿出最底下的书或盘子，一定要现将上面的移走才可以。</p>
+	<script>
+		class Stack {
+			constructor() {
+				this.items = []
+			}
+			// 入栈
+			push(element) {
+				this.items.push(element)
+			}
+			// 出栈
+			pop() {
+				return this.items.pop()
+			}
+			// 末位
+			get peek() {
+				return this.items[this.items.length - 1]
+			}
+			// 是否为空栈
+			get isEmpty() {
+				return !this.items.length
+			}
+			// 尺寸
+			get size() {
+				return this.items.length
+			}
+			// 清空栈
+			clear() {
+				this.items = []
+			}
+		}
+
+		// 实例化一个栈
+		const stack = new Stack()
+		console.log(stack)
+		console.log(stack.isEmpty)
+
+		// 添加元素
+		stack.push(5)
+		stack.push(8)
+
+		// 读取属性再添加
+		console.log(stack.peek)
+		stack.push(11)
+		console.log(stack.size)
+		console.log(stack.isEmpty)
+		console.log(stack)
+	</script>
+		
+</body>
+</html>
